@@ -1,0 +1,58 @@
+Running 5m test @ http://13.0.0.29:8089/high/web2g.html
+  1 threads and 1 connections
+  Thread calibration: mean lat.: 9223372036854776.000ms, rate sampling interval: 10ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.08s     5.03s   20.10s    50.00%
+    Req/Sec     0.18      4.33   111.00     99.83%
+  2 requests in 22.01s, 4.28GB read
+  Socket errors: connect 0, read 0, write 0, timeout 9
+Requests/sec:      0.09
+Transfer/sec:    199.10MB
+Running 5m test @ http://13.0.0.29:8089/slow/web1m.html
+  40 threads and 400 connections
+  Thread calibration: mean lat.: 5641.715ms, rate sampling interval: 17907ms
+  Thread calibration: mean lat.: 5558.071ms, rate sampling interval: 17989ms
+  Thread calibration: mean lat.: 5573.685ms, rate sampling interval: 18874ms
+  Thread calibration: mean lat.: 5643.376ms, rate sampling interval: 18333ms
+  Thread calibration: mean lat.: 5600.977ms, rate sampling interval: 18448ms
+  Thread calibration: mean lat.: 5612.972ms, rate sampling interval: 18677ms
+  Thread calibration: mean lat.: 5538.643ms, rate sampling interval: 18022ms
+  Thread calibration: mean lat.: 5694.303ms, rate sampling interval: 19578ms
+  Thread calibration: mean lat.: 5478.276ms, rate sampling interval: 17891ms
+  Thread calibration: mean lat.: 5663.238ms, rate sampling interval: 18972ms
+  Thread calibration: mean lat.: 5625.052ms, rate sampling interval: 18972ms
+  Thread calibration: mean lat.: 5615.872ms, rate sampling interval: 18677ms
+  Thread calibration: mean lat.: 5689.152ms, rate sampling interval: 19136ms
+  Thread calibration: mean lat.: 5558.421ms, rate sampling interval: 18382ms
+  Thread calibration: mean lat.: 5577.827ms, rate sampling interval: 18399ms
+  Thread calibration: mean lat.: 5602.113ms, rate sampling interval: 18644ms
+  Thread calibration: mean lat.: 5706.410ms, rate sampling interval: 19513ms
+  Thread calibration: mean lat.: 5655.526ms, rate sampling interval: 18825ms
+  Thread calibration: mean lat.: 5702.823ms, rate sampling interval: 19611ms
+  Thread calibration: mean lat.: 5650.095ms, rate sampling interval: 18989ms
+  Thread calibration: mean lat.: 5665.903ms, rate sampling interval: 19398ms
+  Thread calibration: mean lat.: 5605.013ms, rate sampling interval: 18595ms
+  Thread calibration: mean lat.: 5699.846ms, rate sampling interval: 19021ms
+  Thread calibration: mean lat.: 5697.621ms, rate sampling interval: 19628ms
+  Thread calibration: mean lat.: 5688.686ms, rate sampling interval: 18972ms
+  Thread calibration: mean lat.: 5741.236ms, rate sampling interval: 19693ms
+  Thread calibration: mean lat.: 5626.981ms, rate sampling interval: 18350ms
+  Thread calibration: mean lat.: 5659.395ms, rate sampling interval: 18939ms
+  Thread calibration: mean lat.: 5673.920ms, rate sampling interval: 19382ms
+  Thread calibration: mean lat.: 5646.196ms, rate sampling interval: 18366ms
+  Thread calibration: mean lat.: 5662.573ms, rate sampling interval: 18399ms
+  Thread calibration: mean lat.: 5694.686ms, rate sampling interval: 19546ms
+  Thread calibration: mean lat.: 5643.801ms, rate sampling interval: 18530ms
+  Thread calibration: mean lat.: 5665.438ms, rate sampling interval: 18857ms
+  Thread calibration: mean lat.: 5546.224ms, rate sampling interval: 18497ms
+  Thread calibration: mean lat.: 5694.832ms, rate sampling interval: 19447ms
+  Thread calibration: mean lat.: 5553.826ms, rate sampling interval: 18268ms
+  Thread calibration: mean lat.: 5616.165ms, rate sampling interval: 18120ms
+  Thread calibration: mean lat.: 5621.785ms, rate sampling interval: 18956ms
+  Thread calibration: mean lat.: 5672.704ms, rate sampling interval: 19398ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.16s     3.41s   22.00s    59.05%
+    Req/Sec       -nan      -nan   0.00      0.00%
+  7944 requests in 22.05s, 7.98GB read
+Requests/sec:    360.25
+Transfer/sec:    370.76MB
