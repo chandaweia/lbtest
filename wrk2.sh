@@ -4,16 +4,15 @@ timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
 FILEPATH=./result/test.txt
 ele1=400
-ele2=3
-ele3=1
+ele3=2
 #URL1=http://13.0.0.29:8089/slow/web1m.html
-URL1=http://13.0.0.29:8088/slow/web1m.html
-URL2=http://13.0.0.29:8088/high/web30m.html
-URL3=http://13.0.0.29:8088/high/web2g.html
+URL1=http://13.0.0.29:8089/slow/web1m.html
+URL2=http://13.0.0.29:8089/high/web30m.html
+URL3=http://13.0.0.29:8089/high/web1g.html
 Duration=300
 DurationLarge=20
-let Rele1=${ele1}*2
-let R1=$Duration*${Rele1}
+let Rele1=20000
+let R1=${Rele1}
 echo "R1:"$R1
 
 

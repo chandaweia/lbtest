@@ -3,18 +3,19 @@
 timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
 FILEPATH=./result/test.txt
-ele1=400
-ele2=3
-ele3=1
+slow=50
+high=1
 #URL1=http://13.0.0.29:8089/slow/web1m.html
-URL1=http://13.0.0.29:8089/slow/web1m.html
-URL2=http://13.0.0.29:8089/high/web30m.html
+#slow=web100k, pps=1w, slow=web500k, pps=4.3w
+#high=400m, pps=3.8w
+URL_SLOW=http://13.0.0.29:8089/slow/web400k.html  ##15k
+URL_HIGH=http://13.0.0.29:8089/high/web500m.html
 URL3=http://13.0.0.29:8089/high/web2g.html
-Duration=300
-DurationLarge=20
-let Rele1=${ele1}*2
-let R1=$Duration*${Rele1}
-echo "R1:"$R1
+Duration=120
+let Rslow=${slow}
+#let Rhigh=${high}
+#let R1=$Duration*${Rele1}
+#echo "R1:"$R1
 
 
 >$FILEPATH
@@ -23,7 +24,7 @@ function wrk_url()
 {
 	#$1:number of wrk
 	#$2: URL $3:Duration Time
-	echo "elephant:"$1
+	echo "# of slow flows:"$1
 	for (( i=1; i<=$1; i++ ))
         do
 		echo "ele:"$1"+URL:"$2"+time:"$3 &
@@ -35,13 +36,19 @@ function wrk_url()
 
 function wrk_light()
 {
-	echo "wrk -t"40" -c"$1" -d"$3" -R"${R1}" "$2 
-	wrk -t40 -c$1 -d$3 -R${R1} -H "Connection: Close" $2 >> $FILEPATH &
+	#echo $0","$1","$2
+	if [ $1 -ge 50 ]
+	then
+		echo "# of slow flows:"$1
+	        echo "wrk -t50 -c"$1" -d"$3" -R"${Rslow}" "$2
+        	wrk -t50 -c$1 -d$3 -R${Rslow} -H "Connection: Close" $2 >> $FILEPATH &
+	        wait
+	fi
 }
 
 function wrk_large()
 {
-        echo "elephant:"$1
+        echo "# of high flows:"$1
         for (( i=1; i<=$1; i++ ))
         do
                 echo "ele:"$1"+URL:"$2"+time:"$3 &
@@ -57,26 +64,11 @@ function wrk_test()
 {
 	#wrk_url $ele1 $URL1 $Duration &
 	#wrk_large $ele2 $URL2 $Duration &
-	wrk_light $ele1 $URL1 $Duration &
-	wrk_large $ele3 $URL3 $Duration &
-#	wrk_large $ele3 $URL3 $Duration &
-#	sleep 2
-#	wrk_large $ele3 $URL3 $Duration &
-
-
-	#wrk_large $ele2 $URL2 $DurationLarge & 
-	#sleep 20
-	#wrk_large $ele3 $URL3 $DurationLarge & 
-	#sleep 20
-	#wrk_large  $ele2 $URL2 80 &
-	#wrk_large $ele3 $URL3 80 &
-	#sleep 1
-	#wrk_large $ele3 $URL3 $DurationLarge &
-	#sleep 5
-	#wrk_large $ele2 $URL2 73 &
-	#wrk_large $ele2 $URL2 73 &
+	wrk_light $slow $URL_SLOW $Duration &
+	wrk_large $high $URL_HIGH $Duration &
 
 	wait
 }
+
 
 wrk_test
