@@ -2,17 +2,16 @@
 #timestamp=$(date +%s)
 timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
-FILEPATH=./result/test.txt
-slow=50
+FILEPATH=./result_smartnic/test.txt
+slow=500
 high=1
-#URL1=http://13.0.0.29:8089/slow/web1m.html
-#slow=web100k, pps=1w, slow=web500k, pps=4.3w
-#high=400m, pps=3.8w
-URL_SLOW=http://13.0.0.29:8089/slow/web400k.html  ##15k
-URL_HIGH=http://13.0.0.29:8089/high/web500m.html
-URL3=http://13.0.0.29:8089/high/web2g.html
+#URL_SLOW=http://1.1.1.2:8080/slow/web15k.html  ##15k
+URL_SLOW=http://1.1.1.2:8080/index.html
+URL_HIGH=http://1.1.1.2:8080/high/web40m.html
+#The following URL is used when no limitation for download speed and send speed
 Duration=120
-let Rslow=${slow}
+#let Rslow=${slow}
+let Rslow=20
 #let Rhigh=${high}
 #let R1=$Duration*${Rele1}
 #echo "R1:"$R1
@@ -54,7 +53,7 @@ function wrk_large()
                 echo "ele:"$1"+URL:"$2"+time:"$3 &
                 #wrk -t40 -c100 -d120s -R40000 -H "Connection: Close" $URL1 >> $FILEPATH &
 		#wrk -t20 -c20 -d$3 -R50 -H "Connection: Close" $2 >> $FILEPATH &
-                wrk -t1 -c1 -d$3 -R50 -H "Connection: Close" $2 >> $FILEPATH &
+                wrk -t1 -c1 -d$3 -R100000 -H "Connection: Close" $2 >> $FILEPATH &
 		sleep 2
         done
         wait
