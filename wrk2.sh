@@ -3,8 +3,8 @@
 timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
 FILEPATH=./result/test.txt
-Flow_Light=500
-Flow_Heavy=2
+Flow_Light=1000
+Flow_Heavy=0
 #URL1=http://13.0.0.29:8089/slow/web1m.html
 URL_Light=http://13.0.0.29:8081/slow/web400k.html
 URL_Heavy=http://13.0.0.29:8081/high/web500m.html
@@ -36,6 +36,7 @@ function wrk_light()
 {
 	echo "wrk -t"40" -c"$1" -d"$3" -R"${R1}" "$2 
 	wrk -t50 -c$1 -d$3 -R${R1} -L -H "Connection: Close" $2 >> $FILEPATH &
+	wait
 }
 
 function wrk_large()
