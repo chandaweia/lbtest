@@ -3,13 +3,13 @@
 timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
 FILEPATH=./result/test.txt
-ele1=400
-ele3=2
+Flow_Light=500
+Flow_Heavy=2
 #URL1=http://13.0.0.29:8089/slow/web1m.html
-URL1=http://13.0.0.29:8089/slow/web1m.html
-URL2=http://13.0.0.29:8089/high/web30m.html
-URL3=http://13.0.0.29:8089/high/web1g.html
-Duration=300
+URL_Light=http://13.0.0.29:8081/slow/web400k.html
+URL_Heavy=http://13.0.0.29:8081/high/web500m.html
+#URL3=http://13.0.0.29:8089/high/web1g.html
+Duration=120
 DurationLarge=20
 let Rele1=20000
 let R1=${Rele1}
@@ -35,7 +35,7 @@ function wrk_url()
 function wrk_light()
 {
 	echo "wrk -t"40" -c"$1" -d"$3" -R"${R1}" "$2 
-	wrk -t40 -c$1 -d$3 -R${R1} -H "Connection: Close" $2 >> $FILEPATH &
+	wrk -t50 -c$1 -d$3 -R${R1} -L -H "Connection: Close" $2 >> $FILEPATH &
 }
 
 function wrk_large()
@@ -43,10 +43,9 @@ function wrk_large()
         echo "elephant:"$1
         for (( i=1; i<=$1; i++ ))
         do
-                echo "ele:"$1"+URL:"$2"+time:"$3 &
-                #wrk -t40 -c100 -d120s -R40000 -H "Connection: Close" $URL1 >> $FILEPATH &
-		#wrk -t20 -c20 -d$3 -R50 -H "Connection: Close" $2 >> $FILEPATH &
-                wrk -t1 -c1 -d$3 -R50 -H "Connection: Close" $2 >> $FILEPATH &
+                #echo "ele:"$1"+URL:"$2"+time:"$3 &
+		echo "wrk -t1 -c1 -d"$3" -R50 "$2
+                wrk -t1 -c1 -d$3 -R50 -L -H "Connection: Close" $2 >> $FILEPATH &
 		sleep 2
         done
         wait
@@ -56,24 +55,11 @@ function wrk_test()
 {
 	#wrk_url $ele1 $URL1 $Duration &
 	#wrk_large $ele2 $URL2 $Duration &
-	wrk_light $ele1 $URL1 $Duration &
-	wrk_large $ele3 $URL3 $Duration &
+	wrk_light $Flow_Light $URL_Light $Duration &
+	wrk_large $Flow_Heavy $URL_Heavy $Duration &
 #	wrk_large $ele3 $URL3 $Duration &
 #	sleep 2
 #	wrk_large $ele3 $URL3 $Duration &
-
-
-	#wrk_large $ele2 $URL2 $DurationLarge & 
-	#sleep 20
-	#wrk_large $ele3 $URL3 $DurationLarge & 
-	#sleep 20
-	#wrk_large  $ele2 $URL2 80 &
-	#wrk_large $ele3 $URL3 80 &
-	#sleep 1
-	#wrk_large $ele3 $URL3 $DurationLarge &
-	#sleep 5
-	#wrk_large $ele2 $URL2 73 &
-	#wrk_large $ele2 $URL2 73 &
 
 	wait
 }

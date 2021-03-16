@@ -3,15 +3,14 @@
 timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
 FILEPATH=./result_smartnic/test.txt
-slow=500
-high=1
-#URL_SLOW=http://1.1.1.2:8080/slow/web15k.html  ##15k
-URL_SLOW=http://1.1.1.2:8080/index.html
-URL_HIGH=http://1.1.1.2:8080/high/web40m.html
+slow=150
+high=2
+URL_SLOW=http://12.0.0.29:8080/slow/web15k.html  ##15k
+URL_HIGH=http://12.0.0.29:8080/high/web300m.html
 #The following URL is used when no limitation for download speed and send speed
-Duration=120
-#let Rslow=${slow}
-let Rslow=20
+Duration=60
+let Rslow=${slow}
+#let Rslow=20000
 #let Rhigh=${high}
 #let R1=$Duration*${Rele1}
 #echo "R1:"$R1
@@ -50,10 +49,11 @@ function wrk_large()
         echo "# of high flows:"$1
         for (( i=1; i<=$1; i++ ))
         do
-                echo "ele:"$1"+URL:"$2"+time:"$3 &
+                #echo "ele:"$1"+URL:"$2"+time:"$3 &
                 #wrk -t40 -c100 -d120s -R40000 -H "Connection: Close" $URL1 >> $FILEPATH &
 		#wrk -t20 -c20 -d$3 -R50 -H "Connection: Close" $2 >> $FILEPATH &
-                wrk -t1 -c1 -d$3 -R100000 -H "Connection: Close" $2 >> $FILEPATH &
+		echo "wrk -t1 -c1 -d"$3" -R1000 "$2
+                wrk -t1 -c1 -d$3 -R1000 -H "Connection: Close" $2 >> $FILEPATH &
 		sleep 2
         done
         wait
