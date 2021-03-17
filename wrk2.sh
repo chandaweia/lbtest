@@ -27,7 +27,6 @@ function wrk_url()
         do
 		echo "ele:"$1"+URL:"$2"+time:"$3 &
                 #wrk -t40 -c100 -d120s -R40000 -H "Connection: Close" $URL1 >> $FILEPATH &
-		echo "\n*********************************************************"
 		wrk -t2 -c2 -d$3 -R${R1} -H "Connection: Close" $2 >> $FILEPATH &
         done
 	wait
@@ -37,7 +36,6 @@ function wrk_light()
 {
 	echo "wrk -t"40" -c"$1" -d"$3" -R"${R1}" "$2 
 	wrk -t50 -c$1 -d$3 -R${R1} -L -U -H "Connection: Close" $2 >> $FILEPATH &
-	echo "\n*********************************************************" >> $FILEPATH
 	wait
 }
 
@@ -49,7 +47,6 @@ function wrk_large()
                 #echo "ele:"$1"+URL:"$2"+time:"$3 &
 		echo "wrk -t1 -c1 -d"$3" -R50 "$2
 		wrk -t1 -c1 -d$3 -R50 -L -U -H "Connection: Close" $2 >> $FILEPATH &
-		echo "\n*********************************************************" >> $FILEPATH
 		sleep 5
         done
         wait
