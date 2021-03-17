@@ -2,12 +2,12 @@
 #timestamp=$(date +%s)
 timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
-FILEPATH=./result/test.txt
-Flow_Light=1000
-Flow_Heavy=0
+FILEPATH=./test.txt
+Flow_Light=300
+Flow_Heavy=1
 #URL1=http://13.0.0.29:8089/slow/web1m.html
-URL_Light=http://13.0.0.29:8081/slow/web400k.html
-URL_Heavy=http://13.0.0.29:8081/high/web500m.html
+URL_Light=http://13.0.0.29:8082/slow/web400k.html
+URL_Heavy=http://13.0.0.29:8082/high/web500m.html
 #URL3=http://13.0.0.29:8089/high/web1g.html
 Duration=120
 DurationLarge=20
@@ -27,6 +27,7 @@ function wrk_url()
         do
 		echo "ele:"$1"+URL:"$2"+time:"$3 &
                 #wrk -t40 -c100 -d120s -R40000 -H "Connection: Close" $URL1 >> $FILEPATH &
+		echo "\n*********************************************************"
 		wrk -t2 -c2 -d$3 -R${R1} -H "Connection: Close" $2 >> $FILEPATH &
         done
 	wait
@@ -35,7 +36,8 @@ function wrk_url()
 function wrk_light()
 {
 	echo "wrk -t"40" -c"$1" -d"$3" -R"${R1}" "$2 
-	wrk -t50 -c$1 -d$3 -R${R1} -L -H "Connection: Close" $2 >> $FILEPATH &
+	wrk -t50 -c$1 -d$3 -R${R1} -L -U -H "Connection: Close" $2 >> $FILEPATH &
+	echo "\n*********************************************************" >> $FILEPATH
 	wait
 }
 
@@ -46,8 +48,9 @@ function wrk_large()
         do
                 #echo "ele:"$1"+URL:"$2"+time:"$3 &
 		echo "wrk -t1 -c1 -d"$3" -R50 "$2
-                wrk -t1 -c1 -d$3 -R50 -L -H "Connection: Close" $2 >> $FILEPATH &
-		sleep 2
+		wrk -t1 -c1 -d$3 -R50 -L -U -H "Connection: Close" $2 >> $FILEPATH &
+		echo "\n*********************************************************" >> $FILEPATH
+		sleep 5
         done
         wait
 }
