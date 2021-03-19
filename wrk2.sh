@@ -3,13 +3,13 @@
 timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
 FILEPATH=./test.txt
-Flow_Light=300
-Flow_Heavy=1
+Flow_Light=700
+Flow_Heavy=3
 #URL1=http://13.0.0.29:8089/slow/web1m.html
-URL_Light=http://13.0.0.29:8082/slow/web400k.html
-URL_Heavy=http://13.0.0.29:8082/high/web500m.html
+URL_Light=http://13.0.0.29:8081/slow/web50k.html
+URL_Heavy=http://13.0.0.29:8081/high/web500m.html
 #URL3=http://13.0.0.29:8089/high/web1g.html
-Duration=120
+Duration=180
 DurationLarge=20
 let Rele1=20000
 let R1=${Rele1}
@@ -34,9 +34,12 @@ function wrk_url()
 
 function wrk_light()
 {
-	echo "wrk -t"40" -c"$1" -d"$3" -R"${R1}" "$2 
-	wrk -t50 -c$1 -d$3 -R${R1} -L -U -H "Connection: Close" $2 >> $FILEPATH &
-	wait
+	if [ $1 -ge 50 ]
+        then
+		echo "wrk -t"50" -c"$1" -d"$3" -R"${R1}" "$2 
+		wrk -t50 -c$1 -d$3 -R${R1} -L -U -H "Connection: Close" $2 >> $FILEPATH &
+		wait
+	fi
 }
 
 function wrk_large()
@@ -47,7 +50,7 @@ function wrk_large()
                 #echo "ele:"$1"+URL:"$2"+time:"$3 &
 		echo "wrk -t1 -c1 -d"$3" -R50 "$2
 		wrk -t1 -c1 -d$3 -R50 -L -U -H "Connection: Close" $2 >> $FILEPATH &
-		sleep 5
+		sleep 3
         done
         wait
 }
