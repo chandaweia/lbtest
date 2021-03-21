@@ -1,20 +1,31 @@
 #!/bin/bash
+
+timestamp=$(date)
 #timestamp=$(date +%s)
-timestamp=$(date '+%Y%m%d%H%M%S')
+#timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
-FILEPATH=./test.txt
-Flow_Light=700
+Flow_Light=100
 Flow_Heavy=3
-#URL1=http://13.0.0.29:8089/slow/web1m.html
-URL_Light=http://13.0.0.29:8081/slow/web50k.html
-URL_Heavy=http://13.0.0.29:8081/high/web500m.html
-#URL3=http://13.0.0.29:8089/high/web1g.html
+URL_Light=http://13.0.0.29:8081/slow/web200k.html
+URL_Heavy=http://13.0.0.29:8081/high/web730m.html
 Duration=180
 DurationLarge=20
-let Rele1=20000
-let R1=${Rele1}
-echo "R1:"$R1
+#let R_Light=20000
+let R_Light=${Flow_Light}
+RESULT_DIR=./wrk3
+echo "R_Light:"$R_Light
 
+if [ $# -ne 1 ];then
+	echo "Please input w(weight) or r(rss)"
+        exit 
+fi
+if [[ $1 != "w" ]] && [[ $1 != "r" ]]; then
+	echo "Please input correct Type: w(weight) or r(rss)"
+	exit
+fi
+
+# $1: w for weight, r for rss
+FILEPATH=$RESULT_DIR/wrk_${Flow_Light}${Flow_Heavy}_$1.txt
 
 >$FILEPATH
 echo $FILEPATH
@@ -36,8 +47,8 @@ function wrk_light()
 {
 	if [ $1 -ge 50 ]
         then
-		echo "wrk -t"50" -c"$1" -d"$3" -R"${R1}" "$2 
-		wrk -t50 -c$1 -d$3 -R${R1} -L -U -H "Connection: Close" $2 >> $FILEPATH &
+		echo "wrk -t"50" -c"$1" -d"$3" -R"${R_Light}" "$2 
+		wrk -t50 -c$1 -d$3 -R${R_Light} -L -U -H "Connection: Close" $2 >> $FILEPATH &
 		wait
 	fi
 }
@@ -61,9 +72,9 @@ function wrk_test()
 	#wrk_large $ele2 $URL2 $Duration &
 	wrk_light $Flow_Light $URL_Light $Duration &
 	wrk_large $Flow_Heavy $URL_Heavy $Duration &
-#	wrk_large $ele3 $URL3 $Duration &
-#	sleep 2
-#	wrk_large $ele3 $URL3 $Duration &
+	#wrk_large $ele3 $URL3 $Duration &
+	#sleep 2
+	#wrk_large $ele3 $URL3 $Duration &
 
 	wait
 }
