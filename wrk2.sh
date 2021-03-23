@@ -4,7 +4,7 @@ timestamp=$(date)
 #timestamp=$(date +%s)
 #timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
-Flow_Light=400
+Flow_Light=300
 Flow_Heavy=3
 URL_Light=http://13.0.0.29:8081/slow/web200k.html
 URL_Heavy=http://13.0.0.29:8081/high/web730m.html
@@ -12,14 +12,14 @@ Duration=180
 DurationLarge=20
 #let R_Light=20000
 let R_Light=${Flow_Light}
-RESULT_DIR=./wrk3
+RESULT_DIR=./wrk4
 echo "R_Light:"$R_Light
 
 if [ $# -ne 1 ];then
 	echo "Please input w(weight) or r(rss)"
         exit 
 fi
-if [[ $1 != "w" ]] && [[ $1 != "r" ]]; then
+if [[ $1 != w* ]] && [[ $1 != r* ]]; then
 	echo "Please input correct Type: w(weight) or r(rss)"
 	exit
 fi
@@ -60,8 +60,8 @@ function wrk_large()
         do
                 #echo "ele:"$1"+URL:"$2"+time:"$3 &
 		echo "wrk -t1 -c1 -d"$3" -R50 "$2
-		wrk -t1 -c1 -d$3 -R50 -L -U -H "Connection: Close" $2 >> $FILEPATH &
-		sleep 3
+		wrk1 -t1 -c1 -d$3 --script=delay.lua --latency -H "Connection: Close" $2 >> $FILEPATH &
+		sleep 2
         done
         wait
 }
