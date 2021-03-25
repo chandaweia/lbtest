@@ -1,7 +1,12 @@
--- example script that demonstrates adding a random
--- 10-50ms delay before each request
+-- example script that demonstrates use of thread:stop()
 
-function delay()
-   --wrk.thread:sleep(10000)
-   return math.random(1000, 2000)
+--local counter = 1
+
+function response()
+   local r = math.random(1,2)
+   os.execute("sleep " .. tonumber(r))
+   --if counter == 100 then
+   --   wrk.thread:stop()
+   --end
+   --counter = counter + 1
 end

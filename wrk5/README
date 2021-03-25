@@ -1,0 +1,4 @@
+Heavy flow: 73M/s. Interval: random
+Light Flow: no limitation. Request 1 time per second for a connection.
+default: 1s-2s
+v3:1s-3s
