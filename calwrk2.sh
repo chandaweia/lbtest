@@ -24,11 +24,11 @@ function getwrk()
 	ThreadN=$3
 	ConnN=$5
 	Math=${10}
-	echo "${ThreadN}+${ConnN}+${Math}"
+	#echo "${ThreadN}+${ConnN}+${Math}"
 }
 function write_tcm()
 {
-	echo -n "$1,$ThreadN,$ConnN,$Math," >> $RESULT
+	echo -n "$0,$ThreadN,$ConnN,$Math," >> $RESULT
 }
 
 function readfile()
@@ -41,7 +41,7 @@ function readfile()
 			#echo $line
 		elif [[ $line == Running* ]]
                 then
-			write_tcm $line
+			write_tcm $1
 		elif [[ $line == 50.000%* ]]
 		then
 			#echo $line
