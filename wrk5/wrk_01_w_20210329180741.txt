@@ -1,0 +1,63 @@
+Running 30s test @ http://13.0.0.29:8081/high/web730m.html
+  1 threads and 1 connections
+  Thread calibration: mean lat.: 9949.184ms, rate sampling interval: 19906ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.85s     4.97s   29.82s    50.00%
+    Req/Sec     0.00      0.00     0.00    100.00%
+  Latency Distribution (HdrHistogram - Recorded Latency)
+ 50.000%    19890.17 ms
+ 75.000%    29835.26 ms
+ 90.000%    29835.26 ms
+ 99.000%    29835.26 ms
+ 99.900%    29835.26 ms
+ 99.990%    29835.26 ms
+ 99.999%    29835.26 ms
+100.000%    29835.26 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   19890.175     0.000000            1         1.00
+   19890.175     0.100000            1         1.11
+   19890.175     0.200000            1         1.25
+   19890.175     0.300000            1         1.43
+   19890.175     0.400000            1         1.67
+   19890.175     0.500000            1         2.00
+   29835.263     0.550000            2         2.22
+   29835.263     1.000000            2          inf
+#[Mean    =    24854.528, StdDeviation   =     4972.544]
+#[Max     =    29818.880, Total count    =            2]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+
+  Latency Distribution (HdrHistogram - Uncorrected Latency (measured without taking delayed starts into account))
+ 50.000%    9961.47 ms
+ 75.000%    9969.66 ms
+ 90.000%    9969.66 ms
+ 99.000%    9969.66 ms
+ 99.900%    9969.66 ms
+ 99.990%    9969.66 ms
+ 99.999%    9969.66 ms
+100.000%    9969.66 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+    9961.471     0.000000            1         1.00
+    9961.471     0.100000            1         1.11
+    9961.471     0.200000            1         1.25
+    9961.471     0.300000            1         1.43
+    9961.471     0.400000            1         1.67
+    9961.471     0.500000            1         2.00
+    9969.663     0.550000            2         2.22
+    9969.663     1.000000            2          inf
+#[Mean    =     9961.472, StdDeviation   =        4.096]
+#[Max     =     9961.472, Total count    =            2]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+  3 requests in 30.01s, 2.15GB read
+  Socket errors: connect 0, read 0, write 0, timeout 12
+Requests/sec:      0.10
+Transfer/sec:     73.21MB
+--------------Summary----------------
+table: 0x402a9390

@@ -1,0 +1,57 @@
+Running 30s test @ http://13.0.0.29:8081/high/web730m.html
+  1 threads and 1 connections
+  Thread calibration: mean lat.: 9965.568ms, rate sampling interval: 19939ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    20.26s     0.00us  20.25s     0.00%
+    Req/Sec     0.00      0.00     0.00    100.00%
+  Latency Distribution (HdrHistogram - Recorded Latency)
+ 50.000%    20267.01 ms
+ 75.000%    20267.01 ms
+ 90.000%    20267.01 ms
+ 99.000%    20267.01 ms
+ 99.900%    20267.01 ms
+ 99.990%    20267.01 ms
+ 99.999%    20267.01 ms
+100.000%    20267.01 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   20267.007     0.000000            1         1.00
+   20267.007     1.000000            1          inf
+#[Mean    =    20258.816, StdDeviation   =        0.000]
+#[Max     =    20250.624, Total count    =            1]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+
+  Latency Distribution (HdrHistogram - Uncorrected Latency (measured without taking delayed starts into account))
+ 50.000%    10313.73 ms
+ 75.000%    10313.73 ms
+ 90.000%    10313.73 ms
+ 99.000%    10313.73 ms
+ 99.900%    10313.73 ms
+ 99.990%    10313.73 ms
+ 99.999%    10313.73 ms
+100.000%    10313.73 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   10313.727     0.000000            1         1.00
+   10313.727     1.000000            1          inf
+#[Mean    =    10309.632, StdDeviation   =        0.000]
+#[Max     =    10305.536, Total count    =            1]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+  2 requests in 30.01s, 2.12GB read
+  Socket errors: connect 0, read 0, write 0, timeout 13
+Requests/sec:      0.07
+Transfer/sec:     72.30MB
+--------------Summary----------------
+table: 0x40359390
+20267007
+20267007
+---------------Latency---------------
+userdata: 0x40359808
+---------------requests---------------
+userdata: 0x40359830

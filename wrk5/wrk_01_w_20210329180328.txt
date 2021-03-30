@@ -1,0 +1,61 @@
+Running 30s test @ http://13.0.0.29:8081/high/web730m.html
+  1 threads and 1 connections
+  Thread calibration: mean lat.: 9965.568ms, rate sampling interval: 19939ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.88s     4.96s   29.84s    50.00%
+    Req/Sec     0.00      0.00     0.00    100.00%
+  Latency Distribution (HdrHistogram - Recorded Latency)
+ 50.000%    19922.94 ms
+ 75.000%    29851.65 ms
+ 90.000%    29851.65 ms
+ 99.000%    29851.65 ms
+ 99.900%    29851.65 ms
+ 99.990%    29851.65 ms
+ 99.999%    29851.65 ms
+100.000%    29851.65 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   19922.943     0.000000            1         1.00
+   19922.943     0.100000            1         1.11
+   19922.943     0.200000            1         1.25
+   19922.943     0.300000            1         1.43
+   19922.943     0.400000            1         1.67
+   19922.943     0.500000            1         2.00
+   29851.647     0.550000            2         2.22
+   29851.647     1.000000            2          inf
+#[Mean    =    24879.104, StdDeviation   =     4964.352]
+#[Max     =    29835.264, Total count    =            2]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+
+  Latency Distribution (HdrHistogram - Uncorrected Latency (measured without taking delayed starts into account))
+ 50.000%    9961.47 ms
+ 75.000%    9961.47 ms
+ 90.000%    9961.47 ms
+ 99.000%    9961.47 ms
+ 99.900%    9961.47 ms
+ 99.990%    9961.47 ms
+ 99.999%    9961.47 ms
+100.000%    9961.47 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+    9961.471     0.000000            2         1.00
+    9961.471     1.000000            2          inf
+#[Mean    =     9957.376, StdDeviation   =        0.000]
+#[Max     =     9953.280, Total count    =            2]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+  3 requests in 30.01s, 2.14GB read
+  Socket errors: connect 0, read 0, write 0, timeout 12
+Requests/sec:      0.10
+Transfer/sec:     73.12MB
+--------------Summary----------------
+table: 0x40620370
+---------------Latency---------------
+userdata: 0x40620970
+---------------requests---------------
+userdata: 0x40620a80

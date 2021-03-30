@@ -1,0 +1,145 @@
+wrk -t 1 -c 1 -d30 -R 50 -math 0 --latency http://13.0.0.29:8081/high/web730m.html
+Running 30s test @ http://13.0.0.29:8081/high/web730m.html
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     -nanus    -nanus   0.00us    0.00%
+    Req/Sec       -nan      -nan   0.00      0.00%
+  Latency Distribution (HdrHistogram - Recorded Latency)
+ 50.000%       0.00 ms
+ 75.000%       0.00 ms
+ 90.000%       0.00 ms
+ 99.000%       0.00 ms
+ 99.900%       0.00 ms
+ 99.990%       0.00 ms
+ 99.999%       0.00 ms
+100.000%       0.00 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+       0.000     1.000000            0          inf
+#[Mean    =         -nan, StdDeviation   =         -nan]
+#[Max     =        0.000, Total count    =            0]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+
+  Latency Distribution (HdrHistogram - Uncorrected Latency (measured without taking delayed starts into account))
+ 50.000%       0.00 ms
+ 75.000%       0.00 ms
+ 90.000%       0.00 ms
+ 99.000%       0.00 ms
+ 99.900%       0.00 ms
+ 99.990%       0.00 ms
+ 99.999%       0.00 ms
+100.000%       0.00 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+       0.000     1.000000            0          inf
+#[Mean    =         -nan, StdDeviation   =         -nan]
+#[Max     =        0.000, Total count    =            0]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+  0 requests in 6.01s, 440.09MB read
+  Socket errors: connect 0, read 0, write 0, timeout 3
+Requests/sec:      0.00
+Transfer/sec:     73.28MB
+wrk -t 1 -c 1 -d30 -R 50 -math 0 --latency http://13.0.0.29:8081/high/web730m.html
+Running 30s test @ http://13.0.0.29:8081/high/web730m.html
+  1 threads and 1 connections
+  Thread calibration: mean lat.: 9965.568ms, rate sampling interval: 19939ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.81s     0.00us  22.81s     0.00%
+    Req/Sec       -nan      -nan   0.00      0.00%
+  Latency Distribution (HdrHistogram - Recorded Latency)
+ 50.000%    22822.91 ms
+ 75.000%    22822.91 ms
+ 90.000%    22822.91 ms
+ 99.000%    22822.91 ms
+ 99.900%    22822.91 ms
+ 99.990%    22822.91 ms
+ 99.999%    22822.91 ms
+100.000%    22822.91 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   22822.911     0.000000            1         1.00
+   22822.911     1.000000            1          inf
+#[Mean    =    22814.720, StdDeviation   =        0.000]
+#[Max     =    22806.528, Total count    =            1]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+
+  Latency Distribution (HdrHistogram - Uncorrected Latency (measured without taking delayed starts into account))
+ 50.000%    9936.90 ms
+ 75.000%    9936.90 ms
+ 90.000%    9936.90 ms
+ 99.000%    9936.90 ms
+ 99.900%    9936.90 ms
+ 99.990%    9936.90 ms
+ 99.999%    9936.90 ms
+100.000%    9936.90 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+    9936.895     0.000000            1         1.00
+    9936.895     1.000000            1          inf
+#[Mean    =     9932.800, StdDeviation   =        0.000]
+#[Max     =     9928.704, Total count    =            1]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+  2 requests in 31.44s, 1.86GB read
+  Socket errors: connect 0, read 0, write 0, timeout 11
+Requests/sec:      0.06
+Transfer/sec:     60.46MB
+wrk -t 1 -c 1 -d30 -R 50 -math 0 --latency http://13.0.0.29:8081/high/web730m.html
+Running 30s test @ http://13.0.0.29:8081/high/web730m.html
+  1 threads and 1 connections
+  Thread calibration: mean lat.: 9940.992ms, rate sampling interval: 19890ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     -nanus    -nanus   0.00us    0.00%
+    Req/Sec       -nan      -nan   0.00      0.00%
+  Latency Distribution (HdrHistogram - Recorded Latency)
+ 50.000%       0.00 ms
+ 75.000%       0.00 ms
+ 90.000%       0.00 ms
+ 99.000%       0.00 ms
+ 99.900%       0.00 ms
+ 99.990%       0.00 ms
+ 99.999%       0.00 ms
+100.000%       0.00 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+       0.000     1.000000            0          inf
+#[Mean    =         -nan, StdDeviation   =         -nan]
+#[Max     =        0.000, Total count    =            0]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+
+  Latency Distribution (HdrHistogram - Uncorrected Latency (measured without taking delayed starts into account))
+ 50.000%       0.00 ms
+ 75.000%       0.00 ms
+ 90.000%       0.00 ms
+ 99.000%       0.00 ms
+ 99.900%       0.00 ms
+ 99.990%       0.00 ms
+ 99.999%       0.00 ms
+100.000%       0.00 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+       0.000     1.000000            0          inf
+#[Mean    =         -nan, StdDeviation   =         -nan]
+#[Max     =        0.000, Total count    =            0]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+  1 requests in 16.50s, 1.00GB read
+  Socket errors: connect 0, read 0, write 0, timeout 6
+Requests/sec:      0.06
+Transfer/sec:     62.06MB
