@@ -1,7 +1,7 @@
 #!/bin/bash 
 #./cal.sh result/wrk1.txt n2n.csv 
 
-WrkDIR=./wrk6
+WrkDIR=./wrk7
 RESULT=$1
 ThreadN=0
 ConnN=0
@@ -94,7 +94,7 @@ function readdir()
 		if test -f $file
 		then
 			echo $file
-			#readfile $file
+			readfile $file
 		fi
 	done
 }
