@@ -7,7 +7,7 @@ ThreadN=0
 ConnN=0
 Math=0
 
-echo "Threads,Concurrency,Math,50%,75%,90%,99%,99.9%,99.99%,99.999%,100%,u50%,u75%,u90%,u99%,u99.9%,u99.99%,u99.999%,u100%,Throughput" > $RESULT
+echo "file,Threads,Concurrency,Math,50%,75%,90%,99%,99.9%,99.99%,99.999%,100%,u50%,u75%,u90%,u99%,u99.9%,u99.99%,u99.999%,u100%,Throughput" > $RESULT
 
 function write_latency()
 {
@@ -28,7 +28,7 @@ function getwrk()
 }
 function write_tcm()
 {
-	echo -n "$ThreadN,$ConnN,$Math," >> $RESULT
+	echo -n "$1,$ThreadN,$ConnN,$Math," >> $RESULT
 }
 
 function readfile()
@@ -41,7 +41,7 @@ function readfile()
 			#echo $line
 		elif [[ $line == Running* ]]
                 then
-			write_tcm
+			write_tcm $line
 		elif [[ $line == 50.000%* ]]
 		then
 			#echo $line
