@@ -28,7 +28,7 @@ function getwrk()
 }
 function write_tcm()
 {
-	echo -n "$0,$ThreadN,$ConnN,$Math," >> $RESULT
+	echo -n "$1,$ThreadN,$ConnN,$Math," >> $RESULT
 }
 
 function readfile()
