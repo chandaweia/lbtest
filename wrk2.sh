@@ -11,8 +11,8 @@ URL_Heavy=http://13.0.0.29:8081/high/web730m.html
 Duration=180
 DurationLarge=20
 #let R_Light=20000
-let R_Light=${Flow_Light}
-RESULT_DIR=./wrk6
+let R_Light=2*${Flow_Light}
+RESULT_DIR=./wrk7
 SCRIPT_DIR=./scripts
 echo "R_Light:"$R_Light
 math=0

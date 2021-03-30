@@ -93,7 +93,8 @@ function readdir()
 	do
 		if test -f $file
 		then
-			readfile $file
+			echo $file
+			#readfile $file
 		fi
 	done
 }

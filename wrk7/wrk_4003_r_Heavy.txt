@@ -1,0 +1,232 @@
+wrk -t 3 -c 3 -d180 -R 50 -math 0 --latency http://13.0.0.29:8081/high/web730m.html
+Running 3m test @ http://13.0.0.29:8081/high/web730m.html
+  1 threads and 1 connections
+  Thread calibration: mean lat.: 9223372036854776.000ms, rate sampling interval: 10ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.83m    44.91s    2.87m    66.67%
+    Req/Sec     0.00      0.00     0.00    100.00%
+  Latency Distribution (HdrHistogram - Recorded Latency)
+ 50.000%    100663.29 ms
+ 75.000%    149553.15 ms
+ 90.000%    149553.15 ms
+ 99.000%    172097.54 ms
+ 99.900%    172097.54 ms
+ 99.990%    172097.54 ms
+ 99.999%    172097.54 ms
+100.000%    172097.54 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   41713.663     0.000000            1         1.00
+   41713.663     0.100000            1         1.11
+   68747.263     0.200000            2         1.25
+   68747.263     0.300000            2         1.43
+  100663.295     0.400000            3         1.67
+  100663.295     0.500000            3         2.00
+  125435.903     0.550000            4         2.22
+  125435.903     0.600000            4         2.50
+  125435.903     0.650000            4         2.86
+  149553.151     0.700000            5         3.33
+  149553.151     0.750000            5         4.00
+  149553.151     0.775000            5         4.44
+  149553.151     0.800000            5         5.00
+  149553.151     0.825000            5         5.71
+  172097.535     0.850000            6         6.67
+  172097.535     1.000000            6          inf
+#[Mean    =   109660.843, StdDeviation   =    44909.815]
+#[Max     =   171966.464, Total count    =            6]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+
+  Latency Distribution (HdrHistogram - Uncorrected Latency (measured without taking delayed starts into account))
+ 50.000%    21889.02 ms
+ 75.000%    29212.67 ms
+ 90.000%    29212.67 ms
+ 99.000%    41713.66 ms
+ 99.900%    41713.66 ms
+ 99.990%    41713.66 ms
+ 99.999%    41713.66 ms
+100.000%    41713.66 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   20774.911     0.000000            1         1.00
+   20774.911     0.100000            1         1.11
+   21331.967     0.200000            2         1.25
+   21331.967     0.300000            2         1.43
+   21889.023     0.400000            3         1.67
+   21889.023     0.500000            3         2.00
+   24297.471     0.550000            4         2.22
+   24297.471     0.600000            4         2.50
+   24297.471     0.650000            4         2.86
+   29212.671     0.700000            5         3.33
+   29212.671     0.750000            5         4.00
+   29212.671     0.775000            5         4.44
+   29212.671     0.800000            5         5.00
+   29212.671     0.825000            5         5.71
+   41713.663     0.850000            6         6.67
+   41713.663     1.000000            6          inf
+#[Mean    =    26527.061, StdDeviation   =     7350.226]
+#[Max     =    41680.896, Total count    =            6]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+  6 requests in 3.02m, 4.51GB read
+  Socket errors: connect 0, read 0, write 0, timeout 79
+Requests/sec:      0.03
+Transfer/sec:     25.50MB
+Running 3m test @ http://13.0.0.29:8081/high/web730m.html
+  1 threads and 1 connections
+  Thread calibration: mean lat.: 9223372036854776.000ms, rate sampling interval: 10ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.58m     0.87m    2.82m    66.67%
+    Req/Sec     0.00      0.00     0.00    100.00%
+  Latency Distribution (HdrHistogram - Recorded Latency)
+ 50.000%    71958.53 ms
+ 75.000%    145489.92 ms
+ 90.000%    145489.92 ms
+ 99.000%    169607.17 ms
+ 99.900%    169607.17 ms
+ 99.990%    169607.17 ms
+ 99.999%    169607.17 ms
+100.000%    169607.17 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   21970.943     0.000000            1         1.00
+   21970.943     0.100000            1         1.11
+   48496.639     0.200000            2         1.25
+   48496.639     0.300000            2         1.43
+   71958.527     0.400000            3         1.67
+   71958.527     0.500000            3         2.00
+  111804.415     0.550000            4         2.22
+  111804.415     0.600000            4         2.50
+  111804.415     0.650000            4         2.86
+  145489.919     0.700000            5         3.33
+  145489.919     0.750000            5         4.00
+  145489.919     0.775000            5         4.44
+  145489.919     0.800000            5         5.00
+  145489.919     0.825000            5         5.71
+  169607.167     0.850000            6         6.67
+  169607.167     1.000000            6          inf
+#[Mean    =    94851.072, StdDeviation   =    52299.100]
+#[Max     =   169476.096, Total count    =            6]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+
+  Latency Distribution (HdrHistogram - Uncorrected Latency (measured without taking delayed starts into account))
+ 50.000%    22380.54 ms
+ 75.000%    30752.77 ms
+ 90.000%    30752.77 ms
+ 99.000%    36962.30 ms
+ 99.900%    36962.30 ms
+ 99.990%    36962.30 ms
+ 99.999%    36962.30 ms
+100.000%    36962.30 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   20692.991     0.000000            1         1.00
+   20692.991     0.100000            1         1.11
+   21970.943     0.200000            2         1.25
+   21970.943     0.300000            2         1.43
+   22380.543     0.400000            3         1.67
+   22380.543     0.500000            3         2.00
+   23838.719     0.550000            4         2.22
+   23838.719     0.600000            4         2.50
+   23838.719     0.650000            4         2.86
+   30752.767     0.700000            5         3.33
+   30752.767     0.750000            5         4.00
+   30752.767     0.775000            5         4.44
+   30752.767     0.800000            5         5.00
+   30752.767     0.825000            5         5.71
+   36962.303     0.850000            6         6.67
+   36962.303     1.000000            6          inf
+#[Mean    =    26090.155, StdDeviation   =     5840.841]
+#[Max     =    36929.536, Total count    =            6]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+  6 requests in 3.01m, 4.47GB read
+  Socket errors: connect 0, read 0, write 0, timeout 80
+Requests/sec:      0.03
+Transfer/sec:     25.35MB
+Running 3m test @ http://13.0.0.29:8081/high/web730m.html
+  1 threads and 1 connections
+  Thread calibration: mean lat.: 9223372036854776.000ms, rate sampling interval: 10ms
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.75m    49.53s    2.99m    50.00%
+    Req/Sec     0.00      0.00     0.00    100.00%
+  Latency Distribution (HdrHistogram - Recorded Latency)
+ 50.000%    86507.52 ms
+ 75.000%    155320.32 ms
+ 90.000%    155320.32 ms
+ 99.000%    179568.64 ms
+ 99.900%    179568.64 ms
+ 99.990%    179568.64 ms
+ 99.999%    179568.64 ms
+100.000%    179568.64 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   38502.399     0.000000            1         1.00
+   38502.399     0.100000            1         1.11
+   61997.055     0.200000            2         1.25
+   61997.055     0.300000            2         1.43
+   86507.519     0.400000            3         1.67
+   86507.519     0.500000            3         2.00
+  109838.335     0.550000            4         2.22
+  109838.335     0.600000            4         2.50
+  109838.335     0.650000            4         2.86
+  155320.319     0.700000            5         3.33
+  155320.319     0.750000            5         4.00
+  155320.319     0.775000            5         4.44
+  155320.319     0.800000            5         5.00
+  155320.319     0.825000            5         5.71
+  179568.639     0.850000            6         6.67
+  179568.639     1.000000            6          inf
+#[Mean    =   105250.816, StdDeviation   =    49525.968]
+#[Max     =   179437.568, Total count    =            6]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+
+  Latency Distribution (HdrHistogram - Uncorrected Latency (measured without taking delayed starts into account))
+ 50.000%    21823.49 ms
+ 75.000%    38502.40 ms
+ 90.000%    38502.40 ms
+ 99.000%    42434.56 ms
+ 99.900%    42434.56 ms
+ 99.990%    42434.56 ms
+ 99.999%    42434.56 ms
+100.000%    42434.56 ms
+
+  Detailed Percentile spectrum:
+       Value   Percentile   TotalCount 1/(1-Percentile)
+
+   20414.463     0.000000            1         1.00
+   20414.463     0.100000            1         1.11
+   20742.143     0.200000            2         1.25
+   20742.143     0.300000            2         1.43
+   21823.487     0.400000            3         1.67
+   21823.487     0.500000            3         2.00
+   22544.383     0.550000            4         2.22
+   22544.383     0.600000            4         2.50
+   22544.383     0.650000            4         2.86
+   38502.399     0.700000            5         3.33
+   38502.399     0.750000            5         4.00
+   38502.399     0.775000            5         4.44
+   38502.399     0.800000            5         5.00
+   38502.399     0.825000            5         5.71
+   42434.559     0.850000            6         6.67
+   42434.559     1.000000            6          inf
+#[Mean    =    27732.651, StdDeviation   =     9091.896]
+#[Max     =    42401.792, Total count    =            6]
+#[Buckets =           27, SubBuckets     =         2048]
+----------------------------------------------------------
+  6 requests in 3.04m, 4.27GB read
+  Socket errors: connect 0, read 0, write 0, timeout 81
+Requests/sec:      0.03
+Transfer/sec:     23.98MB
