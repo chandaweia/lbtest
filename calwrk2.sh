@@ -1,7 +1,7 @@
 #!/bin/bash 
 #./cal.sh result/wrk1.txt n2n.csv 
 
-WrkDIR=./wrk7
+WrkDIR=./wrk6
 RESULT=$1
 ThreadN=0
 ConnN=0
