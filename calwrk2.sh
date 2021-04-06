@@ -5,7 +5,7 @@ WrkDIR=./wrk6
 RESULT=$1
 ThreadN=0
 ConnN=0
-Math=0
+Math=0 #Math=0 rss, Math=1 weight
 
 echo "file,Threads,Concurrency,Math,50%,75%,90%,99%,99.9%,99.99%,99.999%,100%,u50%,u75%,u90%,u99%,u99.9%,u99.99%,u99.999%,u100%,Throughput" > $RESULT
 
