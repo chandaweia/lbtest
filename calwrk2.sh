@@ -89,7 +89,7 @@ echo $RESULT
 function readdir()
 {
 	echo $WrkDIR
-	for file in $WrkDIR/*
+	for file in $WrkDIR/
 	do
 		if test -f $file
 		then
