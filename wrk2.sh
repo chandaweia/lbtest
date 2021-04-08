@@ -4,10 +4,10 @@
 #timestamp=$(date +%s)
 timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
-Flow_Light=200
+Flow_Light=400
 Flow_Heavy=3
 URL_Light=http://13.0.0.29:8081/slow/web200k.html
-URL_Heavy=http://13.0.0.29:8081/high/web350m.html
+URL_Heavy=http://13.0.0.29:8081/high/web730m.html
 Duration=600
 DurationLarge=20
 #let R_Light=20000
