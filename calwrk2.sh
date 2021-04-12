@@ -1,8 +1,8 @@
 #!/bin/bash 
 #./cal.sh n2n.csv 
 
-WrkDIR=./wrk6
-RESULT=$1
+WrkDIR=./wrk9
+RESULT=./wrk_report/$1
 ThreadN=0
 ConnN=0
 Math=0 #Math=0 rss, Math=1 weight
@@ -89,7 +89,7 @@ echo $RESULT
 function readdir()
 {
 	echo $WrkDIR
-	for file in $WrkDIR/*
+	for file in $WrkDIR/*.txt
 	do
 		if test -f $file
 		then
