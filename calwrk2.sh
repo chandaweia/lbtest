@@ -1,7 +1,7 @@
 #!/bin/bash 
 #./cal.sh n2n.csv 
 
-WrkDIR=./wrk10
+WrkDIR=./wrk9
 RESULT=./wrk_report/$1
 ThreadN=0
 ConnN=0
