@@ -4,14 +4,14 @@
 #timestamp=$(date +%s)
 timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
-Flow_Light=1000
+Flow_Light=200
 Flow_Heavy=0
 URL_Light=http://12.0.0.29:8081/slow/web200k.html
 URL_Heavy=http://12.0.0.29:8081/high/web730m.html
 Duration=30
 DurationLarge=20
-#let R_Light=20000
-let R_Light=${Flow_Light}
+let R_Light=20000
+#let R_Light=${Flow_Light}
 RESULT_DIR=./wrk_link1
 SCRIPT_DIR=./scripts
 echo "R_Light:"$R_Light
