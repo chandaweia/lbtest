@@ -4,15 +4,15 @@
 #timestamp=$(date +%s)
 timestamp=$(date '+%Y%m%d%H%M%S')
 echo $timestamp
-Flow_Light=300
+Flow_Light=100
 Flow_Heavy=3
-URL_Light=http://13.0.0.29:8081/slow/web200k.html
-URL_Heavy=http://13.0.0.29:8081/high/web730m.html
-Duration=1800
+URL_Light=http://12.0.0.29:8081/slow/web200k.html
+URL_Heavy=http://12.0.0.29:8081/high/web730m.html
+Duration=30
 DurationLarge=20
 #let R_Light=20000
 let R_Light=${Flow_Light}
-RESULT_DIR=./wrk9
+RESULT_DIR=./wrk_link1
 SCRIPT_DIR=./scripts
 echo "R_Light:"$R_Light
 math=0
@@ -22,10 +22,10 @@ if [ $# -ne 1 ];then
         exit 
 fi
 
-if [[ $1 != w* ]] && [[ $1 != r* ]]; then
-	echo "Please input correct Type: w(weight) or r(rss)"
-	exit
-fi
+#if [[ $1 != w* ]] && [[ $1 != r* ]]; then
+#	echo "Please input correct Type: w(weight) or r(rss)"
+#	exit
+#fi
 
 if [[ $1 != w* ]]; then
 	math=0
